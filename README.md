@@ -1,14 +1,28 @@
 # Career Guidance App
 
-## Run
+1. Open the project link on GitHub.
 
-1. Click **Code**
-2. Go to **Local → Download ZIP**
-3. Extract ZIP
-4. Open folder
-5. Double-click **CareerApp.jar**
+2. Click the green *Code* button.
 
-## About
+3. Click *Local → Download ZIP*.
 
-- Java Swing GUI
-- Uses careers.txt for data
+4. Go to *Downloads* and locate the file:
+   RTPProject.zip
+
+5. Right-click on RTPProject.zip → Click *Extract All* → Click *Extract*.
+
+6. Open the extracted folder:
+   RTPProject
+
+7. Inside it, find:
+   final.zip
+
+8. Right-click on final.zip → Click *Extract All* → Click *Extract*.
+
+9. Open the extracted folder:
+   final
+
+10. Inside the final folder, locate:
+    CareerApp.jar
+
+11. Double-click *CareerApp.jar* to run the application.
