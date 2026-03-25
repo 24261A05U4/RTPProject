@@ -50,7 +50,7 @@ GridBagConstraints gbc = new GridBagConstraints();
 gbc.insets = new Insets(10, 15, 10, 15);
 gbc.fill = GridBagConstraints.HORIZONTAL;
 
-// ===== CREATE COMPONENTS FIRST (IMPORTANT 🔥) =====
+// ===== CREATING COMPONENTS =====
 cgpaField = new JTextField(12);
 graduationBox = new JComboBox<>(new String[]{"Engineering","Medical","Arts","Commerce"});
 interestBox = new JComboBox<>(new String[]{
@@ -58,7 +58,7 @@ interestBox = new JComboBox<>(new String[]{
         "Medical Health","Business and Management"
 });
 
-// ===== APPLY STYLES =====
+// ===== APPLYING STYLES =====
 cgpaField.setFont(inputFont);
 graduationBox.setFont(inputFont);
 interestBox.setFont(inputFont);
@@ -68,7 +68,10 @@ graduationBox.setPreferredSize(new Dimension(150,30));
 interestBox.setPreferredSize(new Dimension(150,30));
 
 // Optional padding inside field
-cgpaField.setBorder(BorderFactory.createEmptyBorder(5,10,5,10));
+cgpaField.setBorder(BorderFactory.createCompoundBorder(
+    BorderFactory.createLineBorder(new Color(180,180,180)),
+    BorderFactory.createEmptyBorder(5,10,5,10)
+));
 
 // ===== ROW 1 =====
 
@@ -140,15 +143,20 @@ top.add(loadBtn, gbc);
         JButton detailBtn = new JButton(" Show Details");
         styleButton(detailBtn, new Color(52,152,219));
 
+	JButton exitBtn = new JButton(" Exit");
+	styleButton(exitBtn, new Color(231,76,60)); // red color
+
         JPanel bottom = new JPanel();
         bottom.setBackground(Color.WHITE);
         bottom.add(detailBtn);
+	bottom.add(exitBtn);
 
         frame.add(bottom, BorderLayout.SOUTH);
 
         // ACTIONS
         loadBtn.addActionListener(e -> loadCareers());
         detailBtn.addActionListener(e -> showDetails());
+	exitBtn.addActionListener(e -> System.exit(0));
 
         careerList.addMouseListener(new MouseAdapter() {
             public void mouseClicked(MouseEvent e) {
@@ -177,6 +185,9 @@ top.add(loadBtn, gbc);
             String graduation = (String) graduationBox.getSelectedItem();
 
             listModel.clear();
+	    detailsPanel.removeAll();
+	    detailsPanel.revalidate();
+  	    detailsPanel.repaint();
 
             if (interest.equalsIgnoreCase("Medical Health") &&
                 !graduation.equalsIgnoreCase("Medical")) {
@@ -238,7 +249,7 @@ top.add(loadBtn, gbc);
     textPanel.add(titleLabel, BorderLayout.NORTH);
     textPanel.add(valueArea, BorderLayout.CENTER);
 
-    // ✅ ONLY THIS LINE (no WEST anymore)
+    // ONLY THIS LINE (no WEST anymore)
     card.add(textPanel, BorderLayout.CENTER);
 
     detailsPanel.add(card);
@@ -262,22 +273,37 @@ top.add(loadBtn, gbc);
                 if (t[1].equalsIgnoreCase(selected)) {
 
                     addRow("Interest", t[0], new Color(52,152,219));
-addRow( "Career Name", t[1], new Color(41,128,185));
-addRow( "Minimum CGPA", t[2], new Color(46,204,113));
-addRow( "Description", t[3], new Color(44,62,80));
-addRow( "Exams", t[4], new Color(155,89,182));
-addRow( "Exam Date", t[5], new Color(243,156,18));
-addRow( "Application Date", t[6], new Color(241,196,15));
-addRow( "Eligibility", t[7], new Color(52,73,94));
-addRow( "Skills Required", t[8], new Color(26,188,156));
-addRow( "Preparation Time", t[9], new Color(127,140,141));
-addRow("Job Role", t[10], new Color(22,160,133));
-addRow( "Institutes", t[11], new Color(52,73,94));
-addRow( "Work Department", t[12], new Color(41,128,185));
-addRow( "Salary", t[13], new Color(39,174,96));
-addRow( "Future Scope", t[14], new Color(211,84,0));
-addRow( "Alternative Careers", t[15], new Color(192,57,43));
+             
+                    addRow("Career Name", t[1], new Color(41,128,185));          
 
+                    addRow("MIN CGPA", t[2], new Color(46,204,113));           
+
+                    addRow("Description", t[3], new Color(44,62,80));
+
+                    addRow("Exams", t[4], new Color(155,89,182));
+
+                    String fee = t[5].replace(",", " - ");
+		    addRow("Fees", fee, new Color(243,156,18));                 
+
+                    addRow("Exam Month", t[6], new Color(241,196,15));           
+
+                    addRow("Competition Level", t[7], new Color(52,73,94));      
+
+                    addRow("Subjects / Skills", t[8], new Color(26,188,156));
+
+                    addRow("Preparation Time", t[9], new Color(127,140,141));
+
+                    addRow("Coaching Institutes", t[10], new Color(22,160,133));
+
+                    addRow("Top Colleges", t[11], new Color(52,73,94));
+
+                    addRow("Work Department", t[12], new Color(41,128,185));
+
+                    addRow("Salary", t[13], new Color(39,174,96));
+
+                    addRow("Future Scope", t[14], new Color(211,84,0));
+
+                    addRow("Alternative Careers", t[15], new Color(192,57,43));
                     break;
                 }
             }
