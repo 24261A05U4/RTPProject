@@ -15,14 +15,14 @@
    RTPProject
 
 7. Inside it, find:
-   final.zip
+   FinalProject.zip
+   
+9. Right-click on FinalProject.zip → Click *Extract All* → Click *Extract*.
 
-8. Right-click on final.zip → Click *Extract All* → Click *Extract*.
+10. Open the extracted folder:
+    FinalProject
 
-9. Open the extracted folder:
-   final
-
-10. Inside the final folder, locate:
+11. Inside the final folder, locate:
     CareerApp.jar
 
-11. Double-click *CareerApp.jar* to run the application.
+12. Double-click *CareerApp.jar* to run the application.
